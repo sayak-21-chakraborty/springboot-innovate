@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="ISO-8859-1">
+	<title>Exhibits</title>
+	
+	<!-- CSS only Bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+		<!-- <a class="navbar-brand" href="#">
+    		<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+  		</a> -->
+ 		<a class="navbar-brand" th:href="@{/exhibits}">Innovate</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  		</button>
+
+  		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+   		<ul class="navbar-nav mr-auto">
+      		<li class="nav-item active">
+        		<a class="nav-link" th:href="@{/exhibits}">Exhibit List </span></a>
+      		</li>
+      		<li class="nav-item">
+		        <a class="nav-link" th:href="@{/exhibits/new}">Add Exhibit <span class="sr-only">(current)</span> </a>
+      		</li>
+     	</ul>
+  		</div>
+		</nav>
+		
+		<div class "container">
+		<div class = "row">
+			<div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Update Entry</h1>
+				<div class = "card-body">
+					<form th:action="@{/exhibits/edit/{id}(id=${exhibit.id})}" th:object = "${exhibit}" method="POST">
+						<div class="form-group">
+							<label> Contact # </label>
+							<input type="number" name="contactNo" th:field="*{contactNo}" class ="form-control" placeholder="Enter Contact #"/>
+						</div>
+						<div class="form-group">
+							<label> Email </label>
+							<input type="text" name="email" th:field="*{email}" class ="form-control" placeholder="Enter Email address"/>
+						</div>
+						<div class="form-group">
+							<label> Participant Name </label>
+							<input type="text" name="name" th:field="*{name}" class ="form-control" placeholder="Enter Participant Name"/>
+						</div>
+						<div class="form-group">
+							<label> Exhibit Title </label>
+							<input type="text" name="title" th:field="*{title}" class ="form-control" placeholder="Enter Exhibit Title"/>
+						</div>
+						<div class="form-group">
+							<label> Exhibit Domain </label>
+							<input type="text" name="domain" th:field="*{domain}" class ="form-control" placeholder="Enter Exhibit Domain"/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	
+	
+		
+	</body>
+</html>
